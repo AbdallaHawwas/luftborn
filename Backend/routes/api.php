@@ -17,6 +17,11 @@ use App\Http\Controllers\UserController;
 */
 // Unuthenticated Routes
 Route::middleware('guest')->group( function() {
+    Route::get('/mail', function () {
+        $data = ["userName" => "Yusuf Muhammed", "companyName" => "luftborn"];
+     
+        return new App\Mail\Ads($data);
+    });
    Route::get('/',fn() => "Welcome to our api \n This Api is designed for luftborn task \n Thanks for watching");
     
    // Auth Routes
